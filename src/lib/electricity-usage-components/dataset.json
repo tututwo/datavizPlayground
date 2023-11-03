@@ -1,0 +1,89 @@
+{
+  "name": "house-utility",
+  "data": [
+    {
+      "start_ms": "2023-11-03T08:30:00.000Z",
+      "length_ms": 10,
+      "appliance": "kettle",
+      "comments": "Oal meal and banana, tea"
+    },
+    {
+      "start_ms": "2023-11-03T10:40:00.000Z",
+      "length_ms": 10,
+      "appliance": "kettle",
+      "comments": "Morning tea"
+    },
+    {
+      "start_ms": "2023-11-03T12:10:00.000Z",
+      "length_ms": 15,
+      "appliance": "stove",
+      "comments": "Noodles or boiled eggs"
+    },
+    {
+      "start_ms": "2023-11-03T12:12:00.000Z",
+      "length_ms": 5,
+      "appliance": "microwave",
+      "comments": "Leftover from last night"
+    },
+    {
+      "start_ms": "2023-11-03T13:10:00.000Z",
+      "length_ms": 8,
+      "appliance": "air fryer",
+      "comments": "Taiyaki dissert"
+    },
+    {
+      "start_ms": "2023-11-03T13:12:00.000Z",
+      "length_ms": 10,
+      "appliance": "kettle",
+      "comments": "Afternoon tea"
+    },
+    {
+      "start_ms": "2023-11-03T18:15:00.000Z",
+      "length_ms": 35,
+      "appliance": "rice cooker",
+      "comments": "cook rice"
+    },
+    {
+      "start_ms": "2023-11-03T18:20:00.000Z",
+      "length_ms": 10,
+      "appliance": "kettle",
+      "comments": "Cooking Aide"
+    },
+    {
+      "start_ms": "2023-11-03T18:35:00.000Z",
+      "length_ms": 12,
+      "appliance": "stove",
+      "comments": "Stir-fried Tomato and egg"
+    },
+    {
+      "start_ms": "2023-11-03T18:55:00.000Z",
+      "length_ms": 4,
+      "appliance": "stove",
+      "comments": "Stir-fried celery and shrimp"
+    },
+    {
+      "start_ms": "2023-11-03T18:15:00.000Z",
+      "length_ms": 35,
+      "appliance": "rice cooker",
+      "comments": "Cook rice"
+    },
+    {
+      "start_ms": "2023-11-03T20:15:00.000Z",
+      "length_ms": 640,
+      "appliance": "air purifier",
+      "comments": "Ventalation"
+    },
+    {
+      "start_ms": "2023-11-04T00:15:00.000Z",
+      "length_ms": 640,
+      "appliance": "humidifier",
+      "comments": "Michigan is dry"
+    },
+    {
+      "start_ms": "2023-11-03T09:00:00.000Z",
+      "length_ms": 720,
+      "appliance": "Mac studio",
+      "comments": "Work and play"
+    }
+  ]
+}
