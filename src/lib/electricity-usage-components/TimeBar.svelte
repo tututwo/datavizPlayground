@@ -6,7 +6,7 @@
   export let rectHeightExpansion = 1;
   import { getContext, createEventDispatcher } from "svelte";
 
-  const { data, xGet, yGet, zGet, xScale, zScale, height } =
+  const { data, xGet, yGet, zGet, xScale, zScale, yScale } =
     getContext("LayerCake");
   /**
    * @type {number | null}
@@ -29,36 +29,41 @@
 {#each $data as bar, index}
   <!-- svelte-ignore a11y-no-static-element-interactions -->
   <!-- on:mouseout={() => (showTooltip = null)} -->
+
+  <!-- Calculate bar width -->
+  {@const barWidth =
+    $xScale(new Date(bar.start_ms.getTime() + bar.length_ms)) -
+    $xScale(new Date(bar.start_ms.getTime()))}
   <g
     on:mouseover={(event) => showTooltipRect(event, index)}
     on:mousemove={handleMousemove}
     on:mouseout={(e) => dispatch("mouseout")}
     on:focus={(event) => showTooltipRect(event, index)}
     on:blur={() => (showTooltip = null)}
+    transform={`translate(0, ${($yScale.bandwidth() / 2) })`}
   >
     <!-- Conditionally render the tooltip rect -->
-    <rect
+    <!-- <rect
       class="hover-to-show-tooltip"
-      width={$xScale(bar.length_ms) + strokeWidth}
+      width={barWidth + strokeWidth}
       height={$height * rectHeightExpansion}
       x={$xGet(bar) - strokeWidth / 2}
       y="1"
       fill="#D9D4D9"
-    />
+    /> -->
     <!-- -2 means controls the gap between bars -->
     <!--! we are setting the lower limit of width here -->
     <rect
-      width={Math.max(
-        $xScale(bar.length_ms) - gapBetweenBars,
-        lowerLimitOfBarWidth
-      )}
+      id={bar.appliance}
+      width={Math.max(barWidth - gapBetweenBars, lowerLimitOfBarWidth)}
       height={barHeight}
       x={$xGet(bar)}
       y={$yGet(bar) - barHeight / 2}
-      fill={bar.match_ms ? $zGet(bar) : $zScale(0)}
+      fill={$zGet(bar)}
       rx="2.5"
       class:highlighted={showTooltip === index}
       style={`stroke-width: ${strokeWidth}px;`}
+     
     />
   </g>
 {/each}
