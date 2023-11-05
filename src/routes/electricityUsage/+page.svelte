@@ -9,6 +9,7 @@
   import TimeBar from "$lib/electricity-usage-components/TimeBar.svelte";
   import YAxis from "$lib/electricity-usage-components/axis/YAxis.svelte";
   import Tooltip from "$lib/electricity-usage-components/Tooltip.svelte";
+  import XAxis from "$lib/electricity-usage-components/axis/XAxis.svelte";
 
   /**
    * @property {string} intro
@@ -47,7 +48,11 @@
   let yaxisText = ["Beginning", "Middle", "End"];
   let rectHeightExpansion = 1.015;
 
-  let tooltipXCoord;
+  let xAxisOffsetY = 5;
+
+  let tooltipXCoord,
+    tooltipContent,
+    tooltipToXAxisText = true;
   let hideTooltip = true;
 </script>
 
@@ -67,19 +72,26 @@
     >
       <Svg>
         <YAxis {rectHeightExpansion} />
+        <XAxis
+          ticks={[0, 30000, 60000, 90000, 120000]}
+          {xAxisOffsetY}
+          {tooltipToXAxisText}
+        />
         <ConnectPath />
 
         <TimeBar
           {barHeight}
           {rectHeightExpansion}
           on:mousemove={(event) => {
-            tooltipXCoord = event.detail.props;
+            tooltipContent = event.detail.props;
+            tooltipToXAxisText = tooltipContent.content;
+            hideTooltip = false;
           }}
           on:mouseout={() => (hideTooltip = true)}
         />
 
         {#if hideTooltip !== true}
-          <Tooltip {evt} let:detail />
+          <Tooltip {tooltipContent} {xAxisOffsetY} />
         {/if}
       </Svg>
     </LayerCake>

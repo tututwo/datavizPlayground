@@ -19,9 +19,15 @@
     showTooltip = index;
   }
 
-  function handleMousemove(e) {
+  function handleMousemove(e, barData) {
     if (e.layerX !== 0 && e.layerY !== 0) {
-      dispatch("mousemove", { e, props: e.layerX });
+      dispatch("mousemove", {
+        e,
+        props: {
+          content: barData.start_ms,
+          xCoord: $xGet(barData) - strokeWidth / 2,
+        },
+      });
     }
   }
 </script>
@@ -31,7 +37,7 @@
   <!-- on:mouseout={() => (showTooltip = null)} -->
   <g
     on:mouseover={(event) => showTooltipRect(event, index)}
-    on:mousemove={handleMousemove}
+    on:mousemove={(e) => handleMousemove(e, bar)}
     on:mouseout={(e) => dispatch("mouseout")}
     on:focus={(event) => showTooltipRect(event, index)}
     on:blur={() => (showTooltip = null)}
