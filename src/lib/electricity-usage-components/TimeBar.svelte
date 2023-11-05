@@ -80,4 +80,8 @@
   .highlighted {
     stroke: black;
   }
+  .highlighted:focus {
+    outline: none; /* Removes the default focus outline */
+    /* Optionally, add a custom focus style here */
+  }
 </style>

@@ -76,6 +76,7 @@
           ticks={[0, 30000, 60000, 90000, 120000]}
           {xAxisOffsetY}
           {tooltipToXAxisText}
+          {hideTooltip}
         />
         <ConnectPath />
 

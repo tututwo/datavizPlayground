@@ -4,17 +4,16 @@
   import { formatSeconds } from "../utility";
   const { xScale, yRange, zDomain, zScale, padding, width, height } =
     getContext("LayerCake");
-  export let ticks, xAxisOffsetY, tooltipToXAxisText;
+  export let ticks, xAxisOffsetY, tooltipToXAxisText, hideTooltip;
 </script>
 
 <g>
   {#each ticks as tick}
-    {@const showText =
-      Math.abs(tooltipToXAxisText - tick) < 10000 ? false : true}
-    {#if showText}
+    {@const isCloseToTooltip = Math.abs(tooltipToXAxisText - tick) < 10000}
+    {@const shouldShowText = hideTooltip || !isCloseToTooltip}
+    {#if shouldShowText}
       <text
-        in:fade={{ duration: 250 }}
-        out:fade={{ duration: 250 }}
+       
         x={$xScale(tick)}
         y={-xAxisOffsetY}
         >{formatSeconds(tick)}
