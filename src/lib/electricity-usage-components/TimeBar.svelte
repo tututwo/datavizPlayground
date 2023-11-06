@@ -4,8 +4,9 @@
   export let gapBetweenBars = 2;
   export let lowerLimitOfBarWidth = 1;
   export let rectHeightExpansion = 1;
-  import { getContext, createEventDispatcher } from "svelte";
 
+  import { getContext, createEventDispatcher } from "svelte";
+import { debounce } from "./utility";
   const { data, xGet, yGet, zGet, xScale, zScale, height } =
     getContext("LayerCake");
   /**

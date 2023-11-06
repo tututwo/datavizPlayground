@@ -1,11 +1,4 @@
-# Libraries I need for a Svelte Data Viz Project
+# Gordon's data visualization playground
 
-## Chart
-- [Layercake](https://layercake.graphics/components)
-- [d3.js](https://d3js.org/getting-started#installing-from-npm)
-
-## Style
-- [Tailwind CSS](https://tailwindcss.com/docs/guides/sveltekit)
-
-## Animation
-- [GSAP](https://greensock.com/docs/v3/Installation)
+This place involves 3D(threlte), charts and maps made in Svelte.js
+Reverse-engineering of good projects is common.

@@ -13,7 +13,7 @@
     {@const shouldShowText = hideTooltip || !isCloseToTooltip}
     {#if shouldShowText}
       <text
-       
+      
         x={$xScale(tick)}
         y={-xAxisOffsetY}
         >{formatSeconds(tick)}
