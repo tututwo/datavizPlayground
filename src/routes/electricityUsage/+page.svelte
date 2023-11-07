@@ -48,7 +48,7 @@
   let yaxisText = ["Beginning", "Middle", "End"];
   let rectHeightExpansion = 1.015;
 
-  let xAxisOffsetY = 5;
+  let xAxisOffsetY = 8;
 
   let tooltipXCoord,
     tooltipContent,
@@ -74,6 +74,7 @@
         <YAxis {rectHeightExpansion} />
         <XAxis
           ticks={[0, 30000, 60000, 90000, 120000]}
+          tickNumber={20}
           {xAxisOffsetY}
           {tooltipToXAxisText}
           {hideTooltip}

@@ -6,7 +6,7 @@
   export let rectHeightExpansion = 1;
 
   import { getContext, createEventDispatcher } from "svelte";
-import { debounce } from "./utility";
+  import { debounce } from "./utility";
   const { data, xGet, yGet, zGet, xScale, zScale, height } =
     getContext("LayerCake");
   /**
